@@ -1,0 +1,8 @@
+.fancy-image {
+  opacity: 0;
+  transition: opacity 440ms;
+
+  &.loaded {
+    opacity: 1;
+  }
+}
