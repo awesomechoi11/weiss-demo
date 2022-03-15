@@ -1,8 +1,18 @@
 .fancy-image {
-  opacity: 0;
-  transition: opacity 440ms;
+  display: inline-flex;
+  box-sizing: content-box;
+  position: relative;
+  overflow: hidden;
+  > img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
 
-  &.loaded {
-    opacity: 1;
+  > .background {
+    background-color: #5b7382;
+    position: absolute;
+    width: 100%;
+    height: 100%;
   }
 }
