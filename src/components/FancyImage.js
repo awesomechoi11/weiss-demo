@@ -1,12 +1,18 @@
 import React, { useEffect, useRef, useState, useMemo } from 'react';
 import clsx from 'clsx';
 import { motion, useAnimation } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 
-export default function FancyImage({ src, className, ...props, revealOnScroll = false }) {
+export default function FancyImage({
+  src,
+  className,
+  revealOnScroll = false,
+  ...props
+}) {
   const controls = useAnimation();
-
+  const [visible, setVisible] = useState(false);
   const { ref, inView } = useInView({
-    threshold: 0.1,
+    threshold: 0.2,
   });
 
   // know when image loads
@@ -19,14 +25,30 @@ export default function FancyImage({ src, className, ...props, revealOnScroll = 
     };
   }, [src]);
 
+  useEffect(() => {
+    if(visible) return
+    if (revealOnScroll) {
+      if (!inView) return;
+      if (loaded) {
+        controls.start('visible');
+      } else {
+        controls.start({
+          opacity: 1,
+        });
+      }
+    } else {
+      if (loaded) {
+        controls.start('visible');
+      }
+    }
+  }, [revealOnScroll, inView, loaded]);
   useEffect(()=>{
-    if(revealOnScroll &&)
-    controls.start('visible');
-  },[revealOnScroll, loaded])
+    
+  })
 
   return (
     <motion.div
-    ref={ref}
+      ref={ref}
       className={clsx('fancy-image', loaded && 'loaded', className)}
       initial="hidden"
       animate={controls}
@@ -60,8 +82,8 @@ export default function FancyImage({ src, className, ...props, revealOnScroll = 
         src={src}
         {...props}
         variants={{
-          hidden: { opacity: 1 },
-          visible: { opacity: 1 },
+          hidden: { opacity: 1, scale: 1.2 },
+          visible: { opacity: 1, scale: 1 },
         }}
         transition={{
           duration: 0.9,

@@ -23,7 +23,6 @@ export default function RevealOnScroll({
   return (
     <motion.div
       ref={ref}
-      {...props}
       className={clsx('reveal-wrapper', inView && 'in-view', className)}
       variants={animVariants}
       initial="hidden"
@@ -31,6 +30,7 @@ export default function RevealOnScroll({
       transition={{
         delay: 0.6,
       }}
+      {...props}
     >
       {children}
     </motion.div>

@@ -17,10 +17,21 @@ body {
   min-height: 100%;
 }
 
-.owo {
-  position: absolute;
-  left: 10vh;
-  top: 120vh;
-  width: 500px;
-  height: 101vh;
+// $color-dark: ;
+// $color-inactive: #C4C4C4;
+
+.fc-dark {
+  color: #263640;
+}
+.fc-light {
+  color: #929a9f;
+}
+.fc-white {
+  color: #ffffff;
+}
+.fc-primary {
+  color: #ff9900;
+}
+.bgc-primary {
+  background-color: #ff9900;
 }
