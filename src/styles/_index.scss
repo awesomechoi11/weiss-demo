@@ -1,6 +1,8 @@
 // sass imports here so I dont have to clutter app.js
-
+@use 'vars.scss';
 @import './FancyImage.scss';
+@import './Hero.scss';
+@import './Slider.scss';
 
 html {
   font-size: 0.0595238095238vw;
@@ -16,9 +18,6 @@ body {
   width: 100%;
   min-height: 100%;
 }
-
-// $color-dark: ;
-// $color-inactive: #C4C4C4;
 
 .fc-dark {
   color: #263640;

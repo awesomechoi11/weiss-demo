@@ -1,0 +1,10 @@
+@use 'vars.scss';
+
+.hero {
+  padding: 190rem 230rem;
+  > .slider {
+    width: 593rem;
+    height: 750rem;
+    background-color: red;
+  }
+}

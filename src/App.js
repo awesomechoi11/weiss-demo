@@ -4,6 +4,7 @@ import FancyImage from './components/FancyImage';
 import { useSetScroll } from './components/Scroll';
 import { RecoilRoot } from 'recoil';
 import RevealOnScroll from './components/Reveal';
+import Hero from './components/Hero';
 
 export default function App() {
   return (
@@ -18,8 +19,6 @@ function Page() {
 
   return (
     <div>
-      <h1>Hello StackBlitz!</h1>
-      <p>Start editing to see some magic happen :)</p>
       {/* <FancyImage
         revealOnScroll={true}
         src={
@@ -29,7 +28,7 @@ function Page() {
         className="owo"
       /> */}
 
-      <RevealOnScroll>hello</RevealOnScroll>
+      <Hero />
     </div>
   );
 }
