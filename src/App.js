@@ -1,9 +1,7 @@
 import React from 'react';
 import './styles/_index.scss';
-import FancyImage from './components/FancyImage';
 import { useSetScroll } from './components/Scroll';
 import { RecoilRoot } from 'recoil';
-import RevealOnScroll from './components/Reveal';
 import Hero from './components/Hero';
 
 export default function App() {
