@@ -1,6 +1,6 @@
 import RevealOnScroll from './Reveal';
 import React, { useState, useEffect, useRef } from 'react';
-import playIcon from '../assets/playicon.svg';
+import rightArrow from '../assets/rightarrow.svg';
 import { motion, AnimatePresence, useAnimation } from 'framer-motion';
 import clsx from 'clsx';
 import Slider from './Hero/Slider';
@@ -26,12 +26,39 @@ export default function Hero() {
     },
   ];
 
+  const defaultVariants = {
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.8,
+        ease: [0.18, 0, 0, 1],
+      },
+    },
+    hidden: {
+      opacity: 0,
+      y: -15,
+    },
+  };
+
   return (
     <div className="hero">
       <RevealOnScroll className="left">
-        <div>LOREM IPSUM DOLOR</div>
-        <div>LOREM IPSUM DOLOR</div>
-        <div>LOREM IPSUM DOLOR</div>
+        <motion.div className="subheader" variants={defaultVariants}>
+          LOREM IPSUM DOLOR
+        </motion.div>
+        <motion.div className="header" variants={defaultVariants}>
+          Lorem ipsum dolor sit amet, est mollis evertitur ut,{' '}
+        </motion.div>
+        <motion.div className="body" variants={defaultVariants}>
+          Lorem ipsum dolor sit amet, est mollis evertitur ut, clita utinam
+          quaeque ad sed, an legere concludaturque eum. Duo omnis solet
+          dissentiet te, ea sed quis erat reprehendunt, cetero consetetur
+          philosophia mel in.{' '}
+        </motion.div>
+        <motion.button variants={defaultVariants}>
+          Learn More <img src={rightArrow} alt="learn more" />
+        </motion.button>
       </RevealOnScroll>
       <Slider slides={sliderData} />
     </div>

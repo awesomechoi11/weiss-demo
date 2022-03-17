@@ -121,7 +121,7 @@ export default function Slider({ slides, className }) {
         className="controls"
       >
         {slides.map((undefined, index) => (
-          <div
+          <motion.div
             onClick={() => {
               goto(index);
             }}
@@ -131,10 +131,21 @@ export default function Slider({ slides, className }) {
               index === currentIndex && 'active',
               inTransition && 'locked'
             )}
+            initial={{
+              opacity: 0,
+            }}
+            animate={{
+              opacity: 1,
+            }}
+            transition={{
+              delay: 0.25 * index,
+              ease: [0.18, 0, 0, 1],
+              duration: 1.2,
+            }}
           >
             {String(index + 1).padStart(2, '0')}
             <div className="indicator" />
-          </div>
+          </motion.div>
         ))}
       </motion.div>
     </div>

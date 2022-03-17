@@ -25,6 +25,9 @@ body {
 .fc-dark {
   color: vars.$color-dark;
 }
+.fc-light {
+  color: vars.$color-light;
+}
 .fc-grey {
   color: vars.$color-grey;
 }
@@ -34,10 +37,17 @@ body {
 .fc-primary {
   color: vars.$color-primary;
 }
+
 .bgc-primary {
   background-color: vars.$color-primary;
 }
 
+.fw-extra-light{
+  font-weight: 200;
+}
+.fw-light{
+  font-weight: 300;
+}
 .fw-regular{
   font-weight: 400;
 }
@@ -49,4 +59,56 @@ body {
 }
 .fw-lighter {
   font-weight: 200;
+}
+
+.fs-small{
+  font-size: 14rem;
+}
+.fs-regular{
+  font-size: 16rem;
+}
+.fs-big{
+  font-size: 32rem;
+}
+
+.subheader{
+  font-weight: 700;
+  font-size: 14rem;
+  color: vars.$color-light;
+  text-transform: uppercase;
+  margin-bottom: 14rem;
+}
+.header{
+  font-weight: 700;
+  font-size: 32rem;
+  color: vars.$color-dark;
+  margin-bottom: 10rem;
+}
+.body{
+  font-weight: 400;
+  font-size: 16rem;
+  color: vars.$color-light;
+  margin-bottom: 24rem;
+}
+button{
+  font-size: 16rem;
+  font-weight: 700;
+  line-height: 40rem;
+  display: flex;
+  align-items: center;
+  gap: 13rem;
+  padding: 4rem 20rem;
+  background-color: vars.$color-primary;
+  color: vars.$color-white;
+  border-radius: 10rem;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  text-transform: capitalize;
+  transition: gap 220ms, background-color 220ms;
+  user-select: none;
+  &:hover{
+    gap: 16rem;
+    background-color: vars.$color-dark;
+  }
 }

@@ -12,6 +12,10 @@ export default function RevealOnScroll({
       opacity: 0,
     },
   },
+  transition = {
+    delay: 0.6,
+    staggerChildren: 0.3,
+  },
   children,
   className,
   ...props
@@ -27,9 +31,7 @@ export default function RevealOnScroll({
       variants={animVariants}
       initial="hidden"
       animate={inView && 'visible'}
-      transition={{
-        delay: 0.6,
-      }}
+      transition={transition}
       {...props}
     >
       {children}
