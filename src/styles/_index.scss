@@ -10,6 +10,7 @@
 html {
   font-size: 0.0595238095238vw;
   font-family: 'Source Sans 3', sans-serif;
+  color: vars.$color-dark;
 }
 body {
   font-size: 16rem;
@@ -100,16 +101,26 @@ button {
   gap: 13rem;
   padding: 4rem 20rem;
   background-color: vars.$color-primary;
+
   color: vars.$color-white;
   border-radius: 10rem;
   outline: none;
   border: none;
   cursor: pointer;
   text-transform: capitalize;
-  transition: gap 220ms, background-color 220ms;
+  transition: gap 220ms, background-color 220ms, color 220ms;
   user-select: none;
+  svg {
+    fill: vars.$color-white;
+    transition: fill 220ms;
+  }
   &:hover {
     gap: 16rem;
-    background-color: vars.$color-dark;
+    background-color: vars.$color-white;
+    border: thin vars.$color-primary solid;
+    color: vars.$color-primary;
+    svg {
+      fill: vars.$color-primary;
+    }
   }
 }

@@ -1,6 +1,6 @@
 import RevealOnScroll from './Reveal';
 import React from 'react';
-import rightArrow from '../assets/rightarrow.svg';
+import RightArrow from '../assets/rightarrow';
 import { motion } from 'framer-motion';
 import Slider from './Hero/Slider';
 
@@ -42,7 +42,7 @@ export default function Hero() {
 
   return (
     <div className="hero">
-      <RevealOnScroll className="left">
+      <RevealOnScroll className="left" animVariants={{}}>
         <motion.div className="subheader" variants={defaultVariants}>
           LOREM IPSUM DOLOR
         </motion.div>
@@ -56,7 +56,8 @@ export default function Hero() {
           philosophia mel in.{' '}
         </motion.div>
         <motion.button variants={defaultVariants}>
-          Learn More <img src={rightArrow} alt="learn more" />
+          Learn More
+          {RightArrow}
         </motion.button>
       </RevealOnScroll>
       <Slider slides={sliderData} />

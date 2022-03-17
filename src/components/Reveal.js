@@ -14,7 +14,7 @@ export default function RevealOnScroll({
   },
   transition = {
     delay: 0.6,
-    staggerChildren: 0.3,
+    staggerChildren: 0.12,
   },
   children,
   className,

@@ -3,6 +3,7 @@ import './styles/_index.scss';
 import { useSetScroll } from './components/Scroll';
 import { RecoilRoot } from 'recoil';
 import Hero from './components/Hero';
+import Navbar from './components/Navbar';
 
 export default function App() {
   return (
@@ -17,15 +18,7 @@ function Page() {
 
   return (
     <div>
-      {/* <FancyImage
-        revealOnScroll={true}
-        src={
-          'https://images.unsplash.com/photo-1587304631786-b880ac55571b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80'
-        }
-        alt="leaves"
-        className="owo"
-      /> */}
-
+      <Navbar />
       <Hero />
     </div>
   );
