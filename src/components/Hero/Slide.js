@@ -24,9 +24,11 @@ const slideVariants = {
 const slideImageVariants = {
   loaded: {
     x: '0%',
+    scale: 1,
   },
   loading: {
     x: '10%',
+    scale: 1.12,
   },
 };
 const coverVariants = {

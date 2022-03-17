@@ -23,7 +23,7 @@ export default function Band1() {
   return (
     <div className="band1">
       <div className="content">
-        <RevealOnScroll className="left" animVariants={{}}>
+        <RevealOnScroll className="inner" animVariants={{}}>
           <motion.div className="subheader" variants={defaultVariants}>
             Unsere Firmenhistorie{' '}
           </motion.div>
@@ -37,13 +37,17 @@ export default function Band1() {
             abhorreant expetendis eos, mel ne nullam noster indoctum. Vide mutat
             graeci id has.
           </motion.div>
-          <motion.button variants={defaultVariants}>
+          <motion.div className="divider" variants={defaultVariants} />
+          <motion.button className="secondary" variants={defaultVariants}>
             Learn More
             {RightArrow}
           </motion.button>
         </RevealOnScroll>
       </div>
-      <FancyImage src="https://stackblitz.com/files/react-v6g1bq/github/awesomechoi11/weiss-demo/master/src/assets/4.jpg" />
+      <FancyImage
+        revealOnScroll
+        src="https://stackblitz.com/files/react-v6g1bq/github/awesomechoi11/weiss-demo/master/src/assets/4.jpg"
+      />
     </div>
   );
 }
