@@ -1,33 +1,28 @@
 @use 'vars.scss';
 
 .band2 {
-  padding: 0 232rem 370rem 232rem;
+  padding: 0 232rem 160rem 232rem;
   position: relative;
-  > .content {
-    padding: 98rem 417rem 106rem 98rem;
-    background-color: vars.$color-dark;
-    color: vars.$color-white !important;
-    width: 494rem;
-    > .inner {
+
+  >.header{
+    margin-bottom: 70rem;
+    >.top{
+      margin-bottom: 15rem;
+    }
+    >.bottom{
       display: flex;
-      flex-direction: column;
+      justify-content: space-between;
       align-items: flex-start;
-      gap: 24rem;
+      >.body{
+        width: 800rem;
+      }
     }
   }
-  > .fancy-image {
-    width: 488rem;
-    height: 662rem;
-    position: absolute;
-    left: 960rem;
-    top: 98rem;
+
+  >.content{
+    >.left{
+      
+    }
   }
 
-  .header,
-  .body {
-    color: vars.$color-white !important;
-  }
-  .body {
-    width: 422rem;
-  }
 }

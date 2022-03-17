@@ -5,6 +5,7 @@ import { RecoilRoot } from 'recoil';
 import Hero from './components/Hero';
 import Navbar from './components/Navbar';
 import Band1 from './components/Band1';
+import Band2 from './components/Band2';
 
 export default function App() {
   return (
@@ -22,6 +23,7 @@ function Page() {
       <Navbar />
       <Hero />
       <Band1 />
+      <Band2/>
     </div>
   );
 }
