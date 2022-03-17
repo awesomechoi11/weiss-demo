@@ -21,7 +21,13 @@
 
   >.content{
     >.left{
-      
+      .fancy-image{
+        border-radius: 10rem;
+      }
+      >.col1>.img1{
+        width: 279rem;
+height: 380rem;
+      }
     }
   }
 

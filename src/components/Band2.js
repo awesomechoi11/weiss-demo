@@ -32,7 +32,7 @@ export default function Band2() {
             hendrerit. In ipsum, morbi amet aenean. Iaculis donec sem nullam
             nunc condimentum nisl non gravida in.
           </motion.div>
-          <motion.button  variants={defaultVariants}>
+          <motion.button variants={defaultVariants}>
             Learn More
             {RightArrow}
           </motion.button>
@@ -41,11 +41,13 @@ export default function Band2() {
       <div className="content">
         <RevealOnScroll className="left" animVariants={{}}>
           <div className="col1">
-              <FancyImage src=""
+            <FancyImage
+              src="https://stackblitz.com/files/react-v6g1bq/github/awesomechoi11/weiss-demo/master/src/assets/6.jpg"
+              alt="preview 1"
+              className="img1"
+            />
           </div>
-          <div className="col2">
-
-          </div>
+          <div className="col2"></div>
         </RevealOnScroll>
         <RevealOnScroll className="right" animVariants={{}}></RevealOnScroll>
       </div>
