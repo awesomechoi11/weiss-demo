@@ -3,6 +3,7 @@
 @import './FancyImage.scss';
 @import './Hero.scss';
 @import './Slider.scss';
+@import './Navbar.scss';
 
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@200;300;400;700&display=swap');
 
@@ -42,13 +43,13 @@ body {
   background-color: vars.$color-primary;
 }
 
-.fw-extra-light{
+.fw-extra-light {
   font-weight: 200;
 }
-.fw-light{
+.fw-light {
   font-weight: 300;
 }
-.fw-regular{
+.fw-regular {
   font-weight: 400;
 }
 .fw-bold {
@@ -61,36 +62,36 @@ body {
   font-weight: 200;
 }
 
-.fs-small{
+.fs-small {
   font-size: 14rem;
 }
-.fs-regular{
+.fs-regular {
   font-size: 16rem;
 }
-.fs-big{
+.fs-big {
   font-size: 32rem;
 }
 
-.subheader{
+.subheader {
   font-weight: 700;
   font-size: 14rem;
   color: vars.$color-light;
   text-transform: uppercase;
   margin-bottom: 14rem;
 }
-.header{
+.header {
   font-weight: 700;
   font-size: 32rem;
   color: vars.$color-dark;
   margin-bottom: 10rem;
 }
-.body{
+.body {
   font-weight: 400;
   font-size: 16rem;
   color: vars.$color-light;
   margin-bottom: 24rem;
 }
-button{
+button {
   font-size: 16rem;
   font-weight: 700;
   line-height: 40rem;
@@ -107,7 +108,7 @@ button{
   text-transform: capitalize;
   transition: gap 220ms, background-color 220ms;
   user-select: none;
-  &:hover{
+  &:hover {
     gap: 16rem;
     background-color: vars.$color-dark;
   }

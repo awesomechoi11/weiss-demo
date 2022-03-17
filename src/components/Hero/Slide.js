@@ -1,8 +1,6 @@
-import RevealOnScroll from './Reveal';
 import React, { useState, useEffect, useRef } from 'react';
 import playIcon from '../../assets/playicon.svg';
-import { motion, AnimatePresence, useAnimation } from 'framer-motion';
-import clsx from 'clsx';
+import { motion } from 'framer-motion';
 
 const slideVariants = {
   afterExit: {
