@@ -1,4 +1,3 @@
-import RevealOnScroll from './Reveal';
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence, useAnimation } from 'framer-motion';
 import clsx from 'clsx';
@@ -7,6 +6,8 @@ import useTimer from '../useTimer';
 // slider has cover until image is loaded
 
 export default function Slider({ slides, className }) {
+  // transition lockout is auto released after exit animation
+  // inTransition is only true after goto runs
   const [inTransition, setTransition] = useState(true);
 
   const [currentIndex, setIndex] = useState(null);
@@ -43,27 +44,52 @@ export default function Slider({ slides, className }) {
     if (currentIndex === null) {
       goto(0);
     }
+    if (inTransition) {
+      // edge case / need to release transition lock
+      let timeoutId = setTimeout(() => {
+        setTransition(false);
+      }, 1700);
+      return () => {
+        clearTimeout(timeoutId);
+      };
+    }
   }, []);
 
-  // transition lockout is auto released after specific time
-  // inTransition is only true after goto runs
-
-  useEffect(() => {
-    if (!inTransition) return;
-    setTimeout(() => {
-      setTransition(false);
-    }, 1700);
-  }, [inTransition]);
-
   const { time, completed, reset, pause, start } = useTimer(5);
+  const timerControls = useAnimation();
   useEffect(() => {
     if (completed) {
       next();
     }
   }, [completed]);
-
+  useEffect(() => {
+    if (completed) {
+      timerControls.set({
+        width: 0,
+      });
+    } else {
+      timerControls.start({
+        width: 100 * ((5 - time) / 5) + '%',
+      });
+    }
+  }, [time]);
   return (
     <div className={clsx('slider', className)}>
+      {/* timer indicator */}
+      <motion.div
+        className="timer-indicator bgc-primary"
+        initial={{
+          width: '0%',
+          height: '4rem',
+        }}
+        animate={timerControls}
+        transition={{
+          // ease: [0.18, 0, 0, 1],
+          ease: 'linear',
+          duration: completed ? 0 : 1,
+        }}
+      />
+
       {/* images */}
       <motion.div
         className="frame"
@@ -74,7 +100,11 @@ export default function Slider({ slides, className }) {
           start();
         }}
       >
-        <AnimatePresence>
+        <AnimatePresence
+          onExitComplete={() => {
+            setTransition(false);
+          }}
+        >
           {currentIndex !== null && (
             <Slide key={currentIndex} {...slides[currentIndex]} />
           )}
@@ -96,8 +126,14 @@ export default function Slider({ slides, className }) {
               goto(index);
             }}
             key={index}
+            className={clsx(
+              'control-button',
+              index === currentIndex && 'active',
+              inTransition && 'locked'
+            )}
           >
             {String(index + 1).padStart(2, '0')}
+            <div className="indicator" />
           </div>
         ))}
       </motion.div>

@@ -2,9 +2,13 @@
 
 .hero {
   padding: 190rem 230rem;
+  display: flex;
+  justify-content: space-between;
   > .slider {
     width: 593rem;
     height: 750rem;
-    // background-color: red;
+  }
+  > .left {
+    margin-top: 103rem;
   }
 }

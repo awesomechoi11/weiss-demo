@@ -4,11 +4,11 @@
 @import './Hero.scss';
 @import './Slider.scss';
 
-@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;400;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@200;300;400;700&display=swap');
 
 html {
   font-size: 0.0595238095238vw;
-  font-family: 'Nunito Sans', sans-serif;
+  font-family: 'Source Sans 3', sans-serif;
 }
 body {
   font-size: 16rem;
@@ -23,17 +23,30 @@ body {
 }
 
 .fc-dark {
-  color: #263640;
+  color: vars.$color-dark;
 }
-.fc-light {
-  color: #929a9f;
+.fc-grey {
+  color: vars.$color-grey;
 }
 .fc-white {
-  color: #ffffff;
+  color: vars.$color-white;
 }
 .fc-primary {
-  color: #ff9900;
+  color: vars.$color-primary;
 }
 .bgc-primary {
-  background-color: #ff9900;
+  background-color: vars.$color-primary;
+}
+
+.fw-regular{
+  font-weight: 400;
+}
+.fw-bold {
+  font-weight: 700;
+}
+.fw-light {
+  font-weight: 300;
+}
+.fw-lighter {
+  font-weight: 200;
 }

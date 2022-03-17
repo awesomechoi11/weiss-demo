@@ -25,7 +25,7 @@ export default function useTimer(length = 3, defaultRunning = true) {
     // runs timeout to update time after 1 second
     // time update triggers effect / loops forever until 0
     if (!running) return;
-    if (time <= 0) return;
+    if (time < 0) return;
     let timerId = tick();
     return () => {
       clearTimeout(timerId);
@@ -34,7 +34,7 @@ export default function useTimer(length = 3, defaultRunning = true) {
 
   return {
     time,
-    completed: time === 0,
+    completed: time < 0,
     reset,
     pause,
     start,

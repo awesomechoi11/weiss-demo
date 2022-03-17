@@ -28,7 +28,7 @@ export default function Hero() {
 
   return (
     <div className="hero">
-      <RevealOnScroll>
+      <RevealOnScroll className="left">
         <div>LOREM IPSUM DOLOR</div>
         <div>LOREM IPSUM DOLOR</div>
         <div>LOREM IPSUM DOLOR</div>
