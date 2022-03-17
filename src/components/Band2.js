@@ -128,8 +128,6 @@ function AccordianItem({ isSelected, index, title, content, setSelected }) {
   const contentRef = useRef();
   const controls = useAnimation();
   useEffect(() => {
-    //1rem = 0.0595238095238vw / px = 100vw / 1680px
-
     if (isSelected) {
       const contentHeight = contentRef.current?.getBoundingClientRect().height;
       const newPadding =
