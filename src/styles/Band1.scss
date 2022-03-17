@@ -1,0 +1,24 @@
+@use 'vars.scss';
+
+.band1 {
+  padding: 0 232rem 370rem 232rem;
+  position: relative;
+  > .content {
+    padding: 98rem 417rem 106rem 98rem;
+    background-color: vars.$color-dark;
+    color: vars.$color-white !important;
+    width: 494rem;
+  }
+  > .fancy-image {
+    width: 488rem;
+    height: 662rem;
+    position: absolute;
+    left: 960rem;
+    top: 98rem;
+  }
+
+  .header,
+  .body {
+    color: vars.$color-white !important;
+  }
+}

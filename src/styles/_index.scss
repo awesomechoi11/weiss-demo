@@ -4,6 +4,7 @@
 @import './Hero.scss';
 @import './Slider.scss';
 @import './Navbar.scss';
+@import './Band1.scss';
 
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@200;300;400;700&display=swap');
 
@@ -99,17 +100,16 @@ button {
   display: flex;
   align-items: center;
   gap: 13rem;
-  padding: 4rem 20rem;
+  padding: 3rem 19rem;
   background-color: vars.$color-primary;
-
   color: vars.$color-white;
   border-radius: 10rem;
   outline: none;
-  border: none;
   cursor: pointer;
   text-transform: capitalize;
   transition: gap 220ms, background-color 220ms, color 220ms;
   user-select: none;
+  border: thin vars.$color-primary solid;
   svg {
     fill: vars.$color-white;
     transition: fill 220ms;

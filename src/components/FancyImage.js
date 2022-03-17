@@ -26,7 +26,7 @@ export default function FancyImage({
   }, [src]);
 
   useEffect(() => {
-    if(visible) return
+    if (visible) return;
     if (revealOnScroll) {
       if (!inView) return;
       if (loaded) {
@@ -42,9 +42,7 @@ export default function FancyImage({
       }
     }
   }, [revealOnScroll, inView, loaded]);
-  useEffect(()=>{
-    
-  })
+  useEffect(() => {});
 
   return (
     <motion.div
@@ -80,7 +78,6 @@ export default function FancyImage({
       <motion.img
         ref={imgRef}
         src={src}
-        {...props}
         variants={{
           hidden: { opacity: 1, scale: 1.2 },
           visible: { opacity: 1, scale: 1 },
@@ -88,6 +85,7 @@ export default function FancyImage({
         transition={{
           duration: 0.9,
         }}
+        {...props}
       />
     </motion.div>
   );
