@@ -1,5 +1,5 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useRef, useEffect } from 'react';
+import { motion, useAnimation } from 'framer-motion';
 import RevealOnScroll from './Reveal';
 import RightArrow from '../assets/rightarrow';
 import FancyImage from './FancyImage';
@@ -47,10 +47,183 @@ export default function Band2() {
               className="img1"
             />
           </div>
-          <div className="col2"></div>
+
+          <div className="col2">
+            <FancyImage
+              src="https://stackblitz.com/files/react-v6g1bq/github/awesomechoi11/weiss-demo/master/src/assets/4.jpg"
+              alt="preview 2"
+              className="img2"
+            />
+            <FancyImage
+              src="https://stackblitz.com/files/react-v6g1bq/github/awesomechoi11/weiss-demo/master/src/assets/3.jpg"
+              alt="preview 3"
+              className="img3"
+            />
+          </div>
         </RevealOnScroll>
-        <RevealOnScroll className="right" animVariants={{}}></RevealOnScroll>
+        <RevealOnScroll className="right" animVariants={{}}>
+          <Accordian />
+        </RevealOnScroll>
       </div>
     </div>
+  );
+}
+
+const accordianData = [
+  {
+    title: 'Bewirb dich bei uns massa',
+    content:
+      'Integer massa urna, senectus maecenas in dapibus urna amet hendrerit. In ipsum, morbi amet aenean.',
+  },
+  {
+    title: 'Morbi amet aenean',
+    content:
+      'Cum 30 euismod interpretaris mediocritatem at, te has rebum audiam, cu pro impedit complectitur. Eam no dicam recteque, cu augue abhorreant expetendis eos, mel ne nullam noster indoctum. Vide mutat graeci id has. Cum 30 euismod interpretaris mediocritatem at, te has rebum audiam, cu pro impedit complectitur. Eam no dicam recteque, cu augue abhorreant expetendis eos, mel ne nullam noster indoctum. Vide mutat graeci id has.',
+  },
+  {
+    title: 'Nunc condimentum nis',
+    content:
+      'Lorem ipsum dolor sit amet, est mollis evertitur ut, clita utinam quaeque ad sed, an legere concludaturque eum. Duo omnis solet dissentiet te, ea sed quis erat reprehendunt. ',
+  },
+];
+
+function Accordian() {
+  const [selected, setSelected] = useState(0);
+
+  return (
+    <div className="accordian">
+      {accordianData.map((data, index) => (
+        <>
+          <AccordianItem
+            key={index}
+            index={index}
+            isSelected={index === selected}
+            setSelected={setSelected}
+            {...data}
+          />
+          <div key={index + 'a'} className="divider"></div>
+        </>
+      ))}
+    </div>
+  );
+}
+
+function AccordianItem({ isSelected, index, title, content, setSelected }) {
+  const contentRef = useRef();
+  const controls = useAnimation();
+  useEffect(() => {
+    if (isSelected) {
+      const newPadding =
+        (window.innerWidth / 1680) *
+          (12 + contentRef.current?.getBoundingClientRect().height) +
+        'rem';
+      controls.start({
+        paddingBottom: newPadding,
+      });
+    } else {
+      controls.start({
+        paddingBottom: '30rem',
+      });
+    }
+  }, [isSelected]);
+
+  return (
+    <motion.div
+      className="item"
+      initial={{
+        paddingBottom: '30rem',
+      }}
+      whileHover={{
+        x: isSelected ? '0rem' : '8rem',
+      }}
+      animate={controls}
+      transition={{
+        ease: [0.18, 0, 0, 1],
+        duration: 0.6,
+      }}
+    >
+      <div
+        className="title"
+        onClick={() => {
+          if (!isSelected) setSelected(index);
+        }}
+      >
+        <ActiveArrow isSelected={isSelected} />
+        {title}
+        <PlusIcon isSelected={isSelected} />
+      </div>
+      <motion.div
+        className="content"
+        ref={contentRef}
+        initial={{
+          opacity: 0,
+        }}
+        animate={{
+          opacity: isSelected ? 1 : 0,
+        }}
+        transition={{
+          ease: [0.18, 0, 0, 1],
+          duration: 1.2,
+        }}
+      >
+        {content}
+      </motion.div>
+    </motion.div>
+  );
+}
+
+function ActiveArrow({ isSelected }) {
+  return (
+    <motion.svg
+      width="12rem"
+      height="12rem"
+      viewBox="0 0 12 12"
+      fill="none"
+      className="active-arrow"
+      initial={{
+        opacity: 0,
+        x: '-4rem',
+      }}
+      animate={{
+        opacity: isSelected ? 1 : 0,
+        x: isSelected ? '0rem' : '-4rem',
+      }}
+    >
+      <path
+        d="M6 1L11 6L6 11"
+        stroke="#FF9900"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path d="M1 5.99935H11" stroke="#FF9900" strokeLinecap="round" />
+    </motion.svg>
+  );
+}
+
+function PlusIcon({ isSelected }) {
+  return (
+    <svg
+      width="12rem"
+      height="12rem"
+      viewBox="0 0 12 12"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path d="M0 6H12" stroke="#151616" />
+      <motion.path
+        initial={{
+          rotate: '0deg',
+        }}
+        animate={{
+          rotate: isSelected ? '270deg' : '0deg',
+        }}
+        transition={{
+          ease: [0.18, 0, 0, 1],
+          duration: 0.4,
+        }}
+        d="M6 0L6 12"
+        stroke="#151616"
+      />
+    </svg>
   );
 }

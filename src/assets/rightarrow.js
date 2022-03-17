@@ -1,8 +1,8 @@
 import React from 'react';
 export default (
   <svg
-    width="8"
-    height="12"
+    width="8rem"
+    height="12rem"
     viewBox="0 0 8 12"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"

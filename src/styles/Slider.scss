@@ -6,7 +6,7 @@
   height: 750rem;
   position: relative;
 
-  >.timer-indicator{
+  > .timer-indicator {
     position: absolute;
     top: 0;
     left: 0;
@@ -54,6 +54,10 @@
           border-radius: 100%;
           background-color: rgba(255, 255, 255, 0.7);
           cursor: pointer;
+          img {
+            width: 10rem;
+            height: 12rem;
+          }
         }
       }
     }
