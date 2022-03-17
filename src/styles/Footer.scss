@@ -1,0 +1,40 @@
+@use 'vars.scss';
+
+.footer {
+  padding: 64rem 232rem 40rem 232rem;
+  background-color: vars.$color-dark;
+  color: vars.$color-white;
+  > .top {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 76rem;
+    > .right {
+      display: flex;
+      gap: 32rem;
+      > .section {
+        width: 176rem;
+        > .title {
+          letter-spacing: 1.75rem;
+        }
+      }
+    }
+  }
+  > .divider {
+    background-color: vars.$color-light;
+  }
+  > .bottom {
+    margin-top: 38rem;
+    display: flex;
+    justify-content: space-between;
+    color: vars.$color-light;
+    a {
+      color: vars.$color-light;
+      text-decoration: none;
+    }
+    > .left {
+      display: flex;
+      align-items: center;
+      gap: 15rem;
+    }
+  }
+}

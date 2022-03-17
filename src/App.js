@@ -6,6 +6,7 @@ import Hero from './components/Hero';
 import Navbar from './components/Navbar';
 import Band1 from './components/Band1';
 import Band2 from './components/Band2';
+import Footer from './components/Footer';
 
 export default function App() {
   return (
@@ -19,11 +20,12 @@ function Page() {
   useSetScroll();
 
   return (
-    <div>
+    <>
       <Navbar />
       <Hero />
       <Band1 />
-      <Band2/>
-    </div>
+      <Band2 />
+      <Footer />
+    </>
   );
 }
