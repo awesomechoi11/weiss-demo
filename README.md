@@ -1,4 +1,4 @@
-# react-v6g1bq
+# Weiss Demo
 
 [Edit on StackBlitz ⚡️](https://stackblitz.com/edit/react-v6g1bq)
 
