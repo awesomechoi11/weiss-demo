@@ -26,12 +26,17 @@ export default function useTimer(length = 3, defaultRunning = true) {
     // time update triggers effect / loops forever until 0
     if (!running) return;
     if (time <= 0) return;
-    return tick();
+    let timerId = tick();
+    return () => {
+      clearTimeout(timerId);
+    };
   }, [running, length, time]);
 
   return {
     time,
     completed: time === 0,
     reset,
+    pause,
+    start,
   };
 }

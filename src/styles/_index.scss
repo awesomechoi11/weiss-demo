@@ -4,8 +4,11 @@
 @import './Hero.scss';
 @import './Slider.scss';
 
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;400;700;900&display=swap');
+
 html {
   font-size: 0.0595238095238vw;
+  font-family: 'Nunito Sans', sans-serif;
 }
 body {
   font-size: 16rem;

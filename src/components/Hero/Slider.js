@@ -7,22 +7,31 @@ import useTimer from '../useTimer';
 // slider has cover until image is loaded
 
 export default function Slider({ slides, className }) {
+  const [inTransition, setTransition] = useState(true);
+
   const [currentIndex, setIndex] = useState(null);
   function goto(newIndex = 0) {
+    // transition lock
+    if (inTransition && currentIndex !== null) return;
+
     // same index
     if (currentIndex === newIndex) return;
 
     // hide
     if (newIndex === null) {
       setIndex(null);
+      setTransition(true);
       return;
     }
 
     // make it safe
     if (typeof newIndex !== 'number') return;
     newIndex = newIndex % slides.length;
-
     setIndex(newIndex);
+
+    // reset timer
+    setTransition(true);
+    reset();
   }
 
   function next() {
@@ -38,7 +47,7 @@ export default function Slider({ slides, className }) {
 
   // transition lockout is auto released after specific time
   // inTransition is only true after goto runs
-  const [inTransition, setTransition] = useState(true);
+
   useEffect(() => {
     if (!inTransition) return;
     setTimeout(() => {
@@ -46,34 +55,52 @@ export default function Slider({ slides, className }) {
     }, 1700);
   }, [inTransition]);
 
-  const { time, completed, reset } = useTimer();
+  const { time, completed, reset, pause, start } = useTimer(5);
   useEffect(() => {
     if (completed) {
-      console.log('hellow');
-      //  reset()
+      next();
     }
   }, [completed]);
 
   return (
     <div className={clsx('slider', className)}>
       {/* images */}
-      <div className="frame">
+      <motion.div
+        className="frame"
+        onHoverStart={() => {
+          pause();
+        }}
+        onHoverEnd={() => {
+          start();
+        }}
+      >
         <AnimatePresence>
           {currentIndex !== null && (
             <Slide key={currentIndex} {...slides[currentIndex]} />
           )}
         </AnimatePresence>
-      </div>
+      </motion.div>
       {/* controls */}
-      <div
-        onClick={() => {
-          if (inTransition) return;
-          setTransition(true);
-          next();
+      <motion.div
+        onHoverStart={() => {
+          pause();
         }}
+        onHoverEnd={() => {
+          start();
+        }}
+        className="controls"
       >
-        next{' '}
-      </div>
+        {slides.map((undefined, index) => (
+          <div
+            onClick={() => {
+              goto(index);
+            }}
+            key={index}
+          >
+            {String(index + 1).padStart(2, '0')}
+          </div>
+        ))}
+      </motion.div>
     </div>
   );
 }
