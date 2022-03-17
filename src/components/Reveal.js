@@ -18,10 +18,11 @@ export default function RevealOnScroll({
   },
   children,
   className,
+  threshold = 0.1,
   ...props
 }) {
   const { ref, inView } = useInView({
-    threshold: 0.1,
+    threshold,
   });
 
   return (

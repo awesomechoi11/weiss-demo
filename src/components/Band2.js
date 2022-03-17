@@ -42,6 +42,7 @@ export default function Band2() {
         <RevealOnScroll className="left" animVariants={{}}>
           <div className="col1">
             <FancyImage
+              revealOnScroll
               src="https://stackblitz.com/files/react-v6g1bq/github/awesomechoi11/weiss-demo/master/src/assets/6.jpg"
               alt="preview 1"
               className="img1"
@@ -50,18 +51,20 @@ export default function Band2() {
 
           <div className="col2">
             <FancyImage
+              revealOnScroll
               src="https://stackblitz.com/files/react-v6g1bq/github/awesomechoi11/weiss-demo/master/src/assets/4.jpg"
               alt="preview 2"
               className="img2"
             />
             <FancyImage
+              revealOnScroll
               src="https://stackblitz.com/files/react-v6g1bq/github/awesomechoi11/weiss-demo/master/src/assets/3.jpg"
               alt="preview 3"
               className="img3"
             />
           </div>
         </RevealOnScroll>
-        <RevealOnScroll className="right" animVariants={{}}>
+        <RevealOnScroll className="right" animVariants={{}} threshold={1}>
           <Accordian />
         </RevealOnScroll>
       </div>
@@ -89,11 +92,24 @@ const accordianData = [
 
 function Accordian() {
   const [selected, setSelected] = useState(0);
-
+  const defaultVariants = {
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.8,
+        ease: [0.18, 0, 0, 1],
+      },
+    },
+    hidden: {
+      opacity: 0,
+      y: -15,
+    },
+  };
   return (
     <div className="accordian">
       {accordianData.map((data, index) => (
-        <>
+        <motion.div variants={defaultVariants}>
           <AccordianItem
             key={index}
             index={index}
@@ -102,7 +118,7 @@ function Accordian() {
             {...data}
           />
           <div key={index + 'a'} className="divider"></div>
-        </>
+        </motion.div>
       ))}
     </div>
   );

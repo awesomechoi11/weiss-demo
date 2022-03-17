@@ -12,9 +12,7 @@ export default function Footer() {
         <div className="right">
           <div className="section">
             <div className="title fc-white fw-bold"> EMAIL</div>
-            <div className="content fc-light">
-            team@weiss.com
-            </div>
+            <div className="content fc-light">team@weiss.com</div>
           </div>
           <div className="section">
             <div className="title fc-white fw-bold"> ADRESSE</div>
