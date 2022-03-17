@@ -33,7 +33,7 @@ export default function Footer() {
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <path d="M1 10V0" stroke="white" stroke-opacity="0.3" />
+            <path d="M1 10V0" stroke="white" strokeOpacity="0.3" />
           </svg>
           <a href="#">Privacy Policy</a>
         </div>

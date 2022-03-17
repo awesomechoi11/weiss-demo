@@ -30,6 +30,10 @@
     a {
       color: vars.$color-light;
       text-decoration: none;
+      transition: color 220ms;
+      &:hover {
+        color: vars.$color-grey;
+      }
     }
     > .left {
       display: flex;

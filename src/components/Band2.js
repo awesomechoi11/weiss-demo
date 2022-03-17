@@ -128,11 +128,12 @@ function AccordianItem({ isSelected, index, title, content, setSelected }) {
   const contentRef = useRef();
   const controls = useAnimation();
   useEffect(() => {
+    //1rem = 0.0595238095238vw / px = 100vw / 1680px
+
     if (isSelected) {
+      const contentHeight = contentRef.current?.getBoundingClientRect().height;
       const newPadding =
-        (window.innerWidth / 1680) *
-          (12 + contentRef.current?.getBoundingClientRect().height) +
-        'rem';
+        (contentHeight / window.innerWidth) * 1680 + 32 + 'rem';
       controls.start({
         paddingBottom: newPadding,
       });
@@ -157,13 +158,11 @@ function AccordianItem({ isSelected, index, title, content, setSelected }) {
         ease: [0.18, 0, 0, 1],
         duration: 0.6,
       }}
+      onClick={() => {
+        if (!isSelected) setSelected(index);
+      }}
     >
-      <div
-        className="title"
-        onClick={() => {
-          if (!isSelected) setSelected(index);
-        }}
-      >
+      <div className="title">
         <ActiveArrow isSelected={isSelected} />
         {title}
         <PlusIcon isSelected={isSelected} />
