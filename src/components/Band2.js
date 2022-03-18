@@ -157,7 +157,9 @@ function AccordianItem({ isSelected, index, title, content, setSelected }) {
         duration: 0.6,
       }}
       onClick={() => {
-        if (!isSelected) setSelected(index);
+        if (!isSelected) {setSelected(index);}else{
+          setSelected(-1)
+        }
       }}
     >
       <div className="title">
