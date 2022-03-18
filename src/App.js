@@ -7,6 +7,7 @@ import Navbar from './components/Navbar';
 import Band1 from './components/Band1';
 import Band2 from './components/Band2';
 import Footer from './components/Footer';
+import Background from './components/Background';
 
 export default function App() {
   return (
@@ -21,6 +22,8 @@ function Page() {
 
   return (
     <>
+      <Background />
+
       <Navbar />
       <Hero />
       <Band1 />
