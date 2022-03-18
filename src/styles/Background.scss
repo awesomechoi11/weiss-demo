@@ -1,47 +1,56 @@
 @use 'vars.scss';
 
-.background{
+.background {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  >*{
+  > * {
     position: absolute;
   }
-  >.banner{
+  > .ring1 {
+    top: 936rem;
+    left: -9rem;
+    background-color: #f5f8fa;
+    z-index: 1;
+  }
+  > .ring2 {
+    top: 1070rem;
+    left: 1488rem;
+
+    background-color: #f5f8fa;
+  }
+  > .banner {
     top: 762rem;
     left: 0;
     width: 100%;
     height: 630rem;
-    background-color: #F5F8FA;
+    background-color: #f5f8fa;
   }
-  >.circles1{
+  > .circles1 {
     top: 1578rem;
     left: 95rem;
   }
-  >.circles2{
+  > .circles2 {
     top: 1811rem;
     left: 1558rem;
-    .circle path{
-      fill: #FCF8ED;
-    
+    .circle path {
+      fill: #fcf8ed;
+    }
   }
-  }
-  >.circles3{
+  > .circles3 {
     top: 2566rem;
     left: 10rem;
-    
-      .circle path{
-          fill: #FCF8ED;
-        
-      }
-    
+
+    .circle path {
+      fill: #fcf8ed;
+    }
   }
-  svg{
+  svg {
     position: absolute;
-    &.circle{
-      path{
-        fill: #F1F6F9;
+    &.circle {
+      path {
+        fill: #f1f6f9;
       }
     }
   }

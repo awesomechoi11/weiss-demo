@@ -12,7 +12,7 @@
   .nav-item {
     padding: 4rem;
     cursor: pointer;
-    border-bottom: thick solid vars.$color-white;
+    border-bottom: 4rem solid vars.$color-white;
     transition: color 220ms, border 220ms;
     display: flex;
     align-items: center;
@@ -22,13 +22,13 @@
     }
     &:hover {
       color: vars.$color-primary;
-      border-bottom: thick solid vars.$color-primary-light;
+      border-bottom: 4rem solid vars.$color-primary-light;
       path {
         fill: vars.$color-primary;
       }
     }
     &.selected {
-      border-bottom: thick solid vars.$color-primary;
+      border-bottom: 4rem solid vars.$color-primary;
       color: vars.$color-primary;
       path {
         fill: vars.$color-primary;

@@ -29,6 +29,13 @@ export default function Background() {
         x={3}
         y={6}
       />
+      <RingSvg
+        width="164rem"
+        height="164rem"
+        threshold={0.1}
+        className="ring1"
+      />
+      <RingSvg width="103rem" height="103rem" className="ring2" />
     </div>
   );
 }
@@ -44,22 +51,29 @@ const circleVariants = {
   },
 };
 
-const RingSvg = (
-  <motion.svg
-    width="164rem"
-    height="164rem"
-    variants={circleVariants}
-    viewBox="0 0 164 164"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path
-      d="M82 0C36.7 0 0 36.7 0 82C0 127.3 36.7 164 82 164C127.3 164 164 127.3 164 82C164.1 36.7 127.3 0 82 0ZM82 132.2C54.3 132.2 31.8 109.7 31.8 82C31.8 54.3 54.3 31.8 82 31.8C109.7 31.8 132.2 54.3 132.2 82C132.2 109.8 109.8 132.2 82 132.2Z"
-      fill="#6FA9C4"
-      fillOpacity="0.1"
-    />
-  </motion.svg>
-);
+const RingSvg = ({ threshold = 1, ...props }) => {
+  const { ref, inView } = useInView({
+    threshold,
+  });
+
+  return (
+    <motion.svg
+      viewBox="0 0 164 164"
+      fill="none"
+      {...props}
+      variants={circleVariants}
+      ref={ref}
+      initial="hidden"
+      animate={inView && 'visible'}
+    >
+      <path
+        d="M82 0C36.7 0 0 36.7 0 82C0 127.3 36.7 164 82 164C127.3 164 164 127.3 164 82C164.1 36.7 127.3 0 82 0ZM82 132.2C54.3 132.2 31.8 109.7 31.8 82C31.8 54.3 54.3 31.8 82 31.8C109.7 31.8 132.2 54.3 132.2 82C132.2 109.8 109.8 132.2 82 132.2Z"
+        fill="#6FA9C4"
+        fillOpacity="0.1"
+      />
+    </motion.svg>
+  );
+};
 
 const CircleSvg = ({ x, y, ...props }) => (
   <motion.svg
