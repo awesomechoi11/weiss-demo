@@ -89,10 +89,12 @@ function Stats() {
   return (
     <div className="statistics">
       {statisticsData.map((data, index, arr) => (
-        <>
+        <React.Fragment key={index}>
           <StatItem {...data} key={index} />
-          {index + 1 !== arr.length && <div className="hdivider"></div>}
-        </>
+          {index + 1 !== arr.length && (
+            <div key={index + 'a'} className="hdivider"></div>
+          )}
+        </React.Fragment>
       ))}
     </div>
   );
@@ -154,7 +156,7 @@ function Accordian() {
   return (
     <div className="accordian">
       {accordianData.map((data, index) => (
-        <motion.div variants={defaultVariants}>
+        <motion.div key={index} variants={defaultVariants}>
           <AccordianItem
             key={index}
             index={index}
