@@ -3,6 +3,7 @@ import { motion, useAnimation } from 'framer-motion';
 import RevealOnScroll from './Reveal';
 import RightArrow from '../assets/rightarrow';
 import FancyImage from './FancyImage';
+import Lerp from 'lerp';
 
 export default function Band2() {
   const defaultVariants = {
@@ -65,9 +66,53 @@ export default function Band2() {
           </div>
         </RevealOnScroll>
         <RevealOnScroll className="right" animVariants={{}} threshold={1}>
+          <Stats />
           <Accordian />
         </RevealOnScroll>
       </div>
+    </div>
+  );
+}
+
+const statisticsData = [
+  {
+    value: 2260,
+    title: 'Integer massa',
+  },
+  {
+    value: 1324,
+    title: 'Nisl non gravidl',
+  },
+];
+
+function Stats() {
+  return (
+    <div className="statistics">
+      {statisticsData.map((data, index, arr) => (
+        <>
+          <StatItem {...data} key={index} />
+          {index + 1 !== arr.length && <div className="hdivider"></div>}
+        </>
+      ))}
+    </div>
+  );
+}
+function StatItem({ value, title }) {
+  const iterations = 100;
+  const [num, setNum] = useState(0);
+  useEffect(() => {
+    if (num >= iterations) return;
+    const timeoutId = setTimeout(() => {
+      setNum(num + 1);
+    }, 25);
+    return () => {
+      clearTimeout(timeoutId);
+    };
+  }, [num]);
+  return (
+    <div className="stat-item">
+      <div className="num">{Math.round(Lerp(0, value, num / iterations))}</div>
+      <div className="title fc-light">{title}</div>
     </div>
   );
 }
@@ -157,8 +202,10 @@ function AccordianItem({ isSelected, index, title, content, setSelected }) {
         duration: 0.6,
       }}
       onClick={() => {
-        if (!isSelected) {setSelected(index);}else{
-          setSelected(-1)
+        if (!isSelected) {
+          setSelected(index);
+        } else {
+          setSelected(-1);
         }
       }}
     >
