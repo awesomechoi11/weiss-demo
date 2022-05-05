@@ -19,7 +19,7 @@
   <a href="#check-these-out">Check These Out</a>
 </p>
 <br>
-![](https://cdn.bmschoi.dev/weiss/weiss%20demo%20-%20scroll%20through.gif)
+[](https://cdn.bmschoi.dev/weiss/weiss%20demo%20-%20scroll%20through.gif)
 
 ## Key Components
 
